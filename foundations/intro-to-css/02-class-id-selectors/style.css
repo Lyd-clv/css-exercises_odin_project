@@ -1,0 +1,19 @@
+.odd:nth-child(odd) {
+background-color: rgb(241, 170, 200);
+font-family: Verdana, "DejaVu Sans" sans-serif;
+}
+
+#text {
+color: blue;
+font-size: 36px;
+}
+
+#size {
+font-size: 24px;
+}
+
+#morecolor {
+background-color: lightgreen;
+font-size: 24px;
+font-weight: bold;
+}
