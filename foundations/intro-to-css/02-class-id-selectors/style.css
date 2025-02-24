@@ -1,4 +1,4 @@
-.odd:nth-child(odd) {
+.odd {
 background-color: rgb(241, 170, 200);
 font-family: Verdana, "DejaVu Sans" sans-serif;
 }
@@ -17,3 +17,36 @@ background-color: lightgreen;
 font-size: 24px;
 font-weight: bold;
 }
+
+/*
+    Below is another solution which  improves reusability and 
+    maintainability by using an additional class (adjust-font-size) 
+    instead of relying too much on unique IDs.
+
+    In the id selector 'four', we could have also
+    added a rule to set the font size to 24px.
+
+    However, since the elements 'Number 3' and 'Number 4'
+    in the HTML file share the same font size, we reused
+    the 'adjust-font-size' class above to help reduce
+    duplicate code.
+
+
+.odd {
+    background-color: rgb(255, 167, 167);
+    font-family: Verdana, "DejaVu Sans", sans-serif;
+  }
+  
+  .adjust-font-size {
+    font-size: 24px;
+  }
+  
+  #two {
+    color: #0000ff;
+    font-size: 36px;
+  }
+
+  #four {
+    background-color: hsl(120, 100%, 75%);
+    font-weight: bold;
+  }*/
