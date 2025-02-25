@@ -40,3 +40,121 @@ body {
   font-size: 22px;
   font-weight: 100;
 }
+
+/* Analysis of the Official Solution vs. My Attempt
+
+1️. Specificity & Rule Order: .para vs. .small-para
+
+Problem:
+
+.para,
+.small-para {
+  color: hsl(0, 0%, 0%);
+  font-weight: 800;
+}
+
+.small-para {
+  font-size: 14px;
+  font-weight: 800;
+}
+
+.para {
+  font-size: 22px;
+}
+Both .small-para and .para have the same specificity (since they are both simple class selectors).
+Since .para comes later in the file, it overrides .small-para wherever there’s a conflict.
+
+Official Solution:
+
+.para {
+  font-size: 22px;
+}
+
+.small-para {
+  font-size: 14px;
+  font-weight: 800;
+}
+Here, .small-para was placed after .para, ensuring that it applies correctly due to rule order.
+
+-> Alternative Solution:
+Instead of changing the order, we could increase the specificity of .small-para:
+
+p.small-para {
+  font-size: 14px;
+  font-weight: 800;
+}
+
+Explanation:
+.small-para alone has a specificity of (0,0,1).
+p.small-para has a specificity of (0,0,2) (since the p element is added).
+This way, .small-para would override .para without relying on rule order.
+
+2️ .confirm vs. .button
+My Solution:
+
+.button.confirm {
+  background: green;
+  color: white;
+  font-weight: bold;
+} 
+
+Official Solution:
+
+#confirm-button {
+  background: green;
+  color: white;
+  font-weight: bold;
+}
+
+Comparison:
+.button.confirm has a specificity of (0,0,2) (1 class for .button, 1 for .confirm).
+#confirm-button has a specificity of (0,1,0) (since IDs always have higher specificity than classes).
+IDs override classes, so #confirm-button ensures the green background applies regardless of .button rules.
+
+-> Conclusion:
+My solution works because .button.confirm is more specific than .button.
+However, the official solution is better because IDs naturally have higher specificity than classes, making the rule more reliable.
+
+3️ .child vs. .text
+My Solution:
+
+.child {
+  color: rgb(0, 0, 0);
+  font-weight: 800;
+  font-size: 14px;
+}
+
+.div.text {
+  color: rgb(0, 0, 0);
+  font-size: 22px;
+  font-weight: 100;
+}
+
+Official Solution:
+
+div .child {
+  color: rgb(0, 0, 0);
+  font-weight: 800;
+  font-size: 14px;
+}
+
+Comparison:
+Mistake in my solution:
+
+.div.text is incorrect because div.text means a <div> with the class text, while .div.text looks for a class literally named div.text.
+Instead, I should have just written .text.
+
+Why is the official solution better?
+
+It makes .child more specific by using div .child.
+This ensures it overrides div.text, because both have a specificity of (0,0,2), but div .child appears later in the file.
+
+-> Alternative Solution:
+Another way to fix this would be:
+
+.text .child {
+  color: rgb(0, 0, 0);
+  font-weight: 800;
+  font-size: 14px;
+}
+This would have the same specificity as div.text, but would be more readable. */
