@@ -7,6 +7,51 @@ body {
   width: 400px;
   background: #fff;
   margin: 16px auto;
+  padding-top: 8px;
+}
+
+.title {
+  background: #e3f4ff;
+}
+
+h1 {
+  padding: 8px;
+  margin: 8px;
+  font-size: 16px;
+}
+
+.content {
+  background: #e3f4ff;
+  padding: 16px 8px;
+  margin: 8px;
+}
+
+.button-container {
+  background: #e3f4ff;
+  text-align: center;
+  padding: 8px;
+  margin: 8px;
+}
+
+button {
+  background: white;
+  border: 1px solid #eee;
+  padding: 8px 24px;
+  display: block;
+  align-content: center;
+}
+
+/* Official SOLUTION */
+
+body {
+  background: #eee;
+  font-family: sans-serif;
+}
+
+.card {
+  width: 400px;
+  background: #fff;
+  margin: 16px auto;
 }
 
 .title {
@@ -25,3 +70,46 @@ button {
   background: white;
   border: 1px solid #eee;
 }
+
+  .card {
+    padding: 8px;
+  }
+  
+  .title {
+    margin-bottom: 8px;
+    font-size: 16px;
+    padding: 8px;
+  }
+  
+  .content {
+    margin-bottom: 8px;
+    padding: 16px 8px;
+  }
+  
+  .button-container {
+    text-align: center;
+    padding: 8px;
+  }
+  
+  button {
+    display: block;
+    margin: 0 auto;
+    padding: 8px 24px;
+  }
+
+/* Analysis
+
+    My solution works, but the official one is more optimized:
+
+    Use consistent padding (padding: 8px;) inside .card instead of just padding-top: 8px;
+
+    Move padding: 8px; and font-size: 16px; from h1 into .title for better structure.
+
+    Use margin-bottom: 8px; instead of margin: 8px; in .content and .title to avoid 
+    extra vertical spacing.
+
+    Remove unnecessary margin: 8px; from .button-container, since previous elements already 
+    have bottom margins.
+  
+    Use margin: 0 auto; to center the button instead of align-content: center;, 
+    which has no effect. */
